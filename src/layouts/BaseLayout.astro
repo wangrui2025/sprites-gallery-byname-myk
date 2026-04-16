@@ -74,8 +74,8 @@ const defaultId = 1;
         localStorage.setItem('preferred-pokemon-name', randomName);
         window.__INITIAL_POKEMON_NAME__ = randomName;
 
-        // Set favicon to pokesprite URL (name-based, not ID-based)
-        var url = POKESPRITE_BASE + '/regular/' + randomName + '.png';
+        // Set favicon to pokesprite icons URL (40x30, perfect for favicon)
+        var url = POKESPRITE_BASE.replace('pokemon-gen8', 'icons/pokemon/regular') + '/' + randomName + '.png';
         var link = document.getElementById('pokemon-favicon');
         if (link) link.href = url;
       })();
