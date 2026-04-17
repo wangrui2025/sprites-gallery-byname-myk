@@ -51,8 +51,8 @@ for (const htmlPath of htmlFiles) {
     if (seenFiles.has(href)) continue;
     seenFiles.add(href);
 
-    // Strip leading base path (e.g. /sprites-gallery/) to resolve locally inside dist/
-    const localPath = href.replace(/^\//, '').replace(/^sprites-gallery\//, '');
+    // Strip leading base path (e.g. /from-name/) to resolve locally inside dist/
+    const localPath = href.replace(/^\//, '').replace(/^from-name\//, '');
     const cssFilePath = path.join(DIST_DIR, localPath);
     if (fs.existsSync(cssFilePath)) {
       allCssContent += fs.readFileSync(cssFilePath, 'utf-8') + '\n';
