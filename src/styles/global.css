@@ -1,37 +1,56 @@
-/* ===== CSS Variables & Theme ===== */
-:root {
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Colors - Primary */
   --color-bg-primary: #f5f4ed;
   --color-bg-dark: #141413;
   --color-text-primary: #3d3d3d;
   --color-text-dark: #c9c9c9;
+
+  /* Colors - Heading */
   --color-heading-primary: #141413;
   --color-heading-dark: #e8e8e8;
+
+  /* Colors - Link */
   --color-link-primary: #c96442;
   --color-link-dark: #d97757;
+
+  /* Colors - Border */
   --color-border-primary: #e5e3db;
   --color-border-dark: #30302e;
+
+  /* Colors - Paper */
   --color-paper-bg: #faf9f5;
   --color-paper-bg-dark: #30302e;
   --color-paper-border: #f0eee6;
   --color-paper-border-dark: #30302e;
+
+  /* Colors - Tag Field */
   --color-tag-field-bg: #e8dcc8;
   --color-tag-field-bg-dark: #3d3529;
   --color-tag-field-text: #5e4a3a;
   --color-tag-field-text-dark: #c9b89a;
+
+  /* Colors - Tag Tech */
   --color-tag-tech-bg: #e8e6dc;
   --color-tag-tech-bg-dark: #3a3a36;
   --color-tag-tech-text: #4d4c48;
   --color-tag-tech-text-dark: #b0aea5;
+
+  /* Colors - Text Secondary */
   --color-text-secondary: #5e5d59;
   --color-text-secondary-dark: #b0aea5;
 }
 
+/* ===== Base Styles ===== */
 html {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
 }
 
-html.dark {
+.dark {
   background-color: var(--color-bg-dark);
   color: var(--color-text-dark);
 }
@@ -39,6 +58,8 @@ html.dark {
 body {
   font-family: 'Inter', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
   line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
 }
 
 /* Keyboard focus indicator */
@@ -47,11 +68,8 @@ body {
   outline-offset: 2px;
 }
 
-html.dark :focus-visible {
+.dark :focus-visible {
   outline-color: var(--color-link-dark);
-}
-  margin: 0;
-  min-height: 100vh;
 }
 
 /* ===== Header ===== */
@@ -70,7 +88,7 @@ html.dark :focus-visible {
   color: var(--color-heading-primary);
 }
 
-html.dark .gallery-title {
+.dark .gallery-title {
   color: var(--color-heading-dark);
 }
 
@@ -84,15 +102,15 @@ html.dark .gallery-title {
   transition: background 0.2s;
 }
 
-html.dark .theme-toggle {
+.dark .theme-toggle {
   background: var(--color-paper-bg-dark);
   border-color: var(--color-paper-border-dark);
 }
 
 .icon-sun { display: inline; }
 .icon-moon { display: none; }
-html.dark .icon-sun { display: none; }
-html.dark .icon-moon { display: inline; }
+.dark .icon-sun { display: none; }
+.dark .icon-moon { display: inline; }
 
 .header-actions {
   display: flex;
@@ -114,7 +132,7 @@ html.dark .icon-moon { display: inline; }
   transition: background 0.2s;
 }
 
-html.dark .icon-btn {
+.dark .icon-btn {
   background: var(--color-paper-bg-dark);
   border-color: var(--color-paper-border-dark);
   color: var(--color-text-dark);
@@ -124,7 +142,7 @@ html.dark .icon-btn {
   background: var(--color-paper-border);
 }
 
-html.dark .icon-btn:hover {
+.dark .icon-btn:hover {
   background: var(--color-paper-border-dark);
 }
 
@@ -155,7 +173,7 @@ html.dark .icon-btn:hover {
   border-radius: 0.5rem;
 }
 
-html.dark .control-bar {
+.dark .control-bar {
   background: var(--color-paper-bg-dark);
   border-color: var(--color-paper-border-dark);
 }
@@ -187,7 +205,7 @@ html.dark .control-bar {
   line-height: 1.4;
 }
 
-html.dark .poke-name {
+.dark .poke-name {
   color: var(--color-heading-dark);
 }
 
@@ -207,7 +225,7 @@ html.dark .poke-name {
   font-size: 0.95em;
 }
 
-html.dark .poke-name .name-zh {
+.dark .poke-name .name-zh {
   color: var(--color-link-dark);
 }
 
@@ -227,7 +245,7 @@ html.dark .poke-name .name-zh {
   color: var(--color-tag-tech-text);
 }
 
-html.dark .type-badge {
+.dark .type-badge {
   background: var(--color-tag-tech-bg-dark);
   color: var(--color-tag-tech-text-dark);
 }
@@ -242,7 +260,7 @@ html.dark .type-badge {
   font-size: 0.95rem;
 }
 
-html.dark .id-input {
+.dark .id-input {
   border-color: var(--color-border-dark);
   background: var(--color-bg-dark);
   color: var(--color-text-dark);
@@ -257,7 +275,7 @@ html.dark .id-input {
   font-size: 0.95rem;
 }
 
-html.dark .gen-select {
+.dark .gen-select {
   border-color: var(--color-border-dark);
   background: var(--color-bg-dark);
   color: var(--color-text-dark);
@@ -314,7 +332,7 @@ html.dark .gen-select {
   transition: box-shadow 0.2s ease;
 }
 
-html.dark .sprite-card {
+.dark .sprite-card {
   background: var(--color-paper-bg-dark);
   border-color: var(--color-paper-border-dark);
 }
@@ -323,7 +341,7 @@ html.dark .sprite-card {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-html.dark .sprite-card:hover {
+.dark .sprite-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -352,7 +370,7 @@ html.dark .sprite-card:hover {
   transition: opacity 0.2s;
 }
 
-html.dark .sprite-image-wrap::after {
+.dark .sprite-image-wrap::after {
   background: #2d2d44;
   color: #6b6b8a;
 }
@@ -393,7 +411,7 @@ html.dark .sprite-image-wrap::after {
   color: var(--color-heading-primary);
 }
 
-html.dark .sprite-name {
+.dark .sprite-name {
   color: var(--color-heading-dark);
 }
 
@@ -412,7 +430,7 @@ html.dark .sprite-name {
   color: var(--color-tag-tech-text);
 }
 
-html.dark .tag {
+.dark .tag {
   background: var(--color-tag-tech-bg-dark);
   color: var(--color-tag-tech-text-dark);
 }
@@ -441,7 +459,7 @@ html.dark .tag {
   transition: background 0.2s;
 }
 
-html.dark .action-btn {
+.dark .action-btn {
   border-color: var(--color-border-dark);
   color: var(--color-text-dark);
 }
@@ -450,7 +468,7 @@ html.dark .action-btn {
   background: var(--color-tag-field-bg);
 }
 
-html.dark .action-btn:hover {
+.dark .action-btn:hover {
   background: var(--color-tag-field-bg-dark);
 }
 
@@ -463,7 +481,7 @@ html.dark .action-btn:hover {
   margin-bottom: 2rem;
 }
 
-html.dark .code-section {
+.dark .code-section {
   background: var(--color-paper-bg-dark);
   border-color: var(--color-paper-border-dark);
 }
@@ -475,7 +493,7 @@ html.dark .code-section {
   color: var(--color-heading-primary);
 }
 
-html.dark .code-title {
+.dark .code-title {
   color: var(--color-heading-dark);
 }
 
@@ -489,7 +507,7 @@ html.dark .code-title {
   margin: 0 0 0.75rem 0;
 }
 
-html.dark .code-block {
+.dark .code-block {
   background: #0f0f1a;
   color: #a6adc8;
 }
@@ -510,7 +528,7 @@ html.dark .code-block {
   text-decoration: underline;
 }
 
-html.dark .back-link {
+.dark .back-link {
   color: var(--color-link-dark);
 }
 
@@ -531,7 +549,7 @@ html.dark .back-link {
   z-index: 100;
 }
 
-html.dark .toast {
+.dark .toast {
   background: var(--color-heading-dark);
   color: var(--color-bg-dark);
 }
